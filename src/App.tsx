@@ -1,20 +1,43 @@
 import './App.css'
-import Grid from '@mui/material/Grid';
+import  Grid  from '@mui/material/Grid';
+import HeaderUI from './components/HeaderUI.tsx';
+import AlertUI from './components/AlertUI.tsx';
+import SelectorUI from './components/SelectorUI.tsx';
 
-function App() {
+function App() {  
   return (
-    <Grid container spacing={5}>
+    <Grid container spacing={5} sx={{ justifyContent: "center", alignItems: "center" }}>
 
-      <Grid size={12}>Elemento: Encabezado</Grid>
-      <Grid size={12}>Elemento: Alertas</Grid>
-      <Grid size={12}>Elemento: Selector</Grid>
-      <Grid size={12}>Elemento: Indicadores</Grid>
-      <Grid size={12}>Elemento: Gráfico</Grid>
-      <Grid size={12}>Elemento: Tabla</Grid>
-      <Grid size={12}>Elemento: Información adicional</Grid>
 
-    </Grid>
-  );
+         {/* Encabezado */}
+         <Grid size={{ xs: 12, md: 12 }}><HeaderUI/> </Grid>
+
+         {/* Alertas */}
+         <Grid size={{ xs: 12, md: 12 }} container sx={{ justifyContent: "right", alignItems: "center" }}>
+
+             <AlertUI description="No se preveen lluvias"/></Grid>
+
+         {/* Selector */}
+         <Grid size={{ xs: 12, md: 3 }}><SelectorUI/></Grid>
+
+         {/* Indicadores */}
+         <Grid size={{ xs: 12, md: 9 }}>Elemento: Indicadores</Grid>
+
+         {/* Gráfico */}
+         <Grid size={{ xs: 12, md: 6 }}sx={{ display: { xs: "none", md: "block"} }} >
+            Elemento: Gráfico
+         </Grid>
+
+         {/* Tabla */}
+         <Grid size={{ xs: 12, md: 6 }}sx={{ display: { xs: "none", md: "block" } }}>
+            Elemento: Tabla
+          </Grid>
+
+         {/* Información adicional */}
+         <Grid size={{ xs: 12, md: 12 }}>Elemento: Información adicional</Grid>
+
+      </Grid>
+      )
 }
 
-export default App;
+export default App
